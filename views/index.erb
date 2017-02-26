@@ -1,0 +1,174 @@
+<html>
+  <head>
+    <title>StreetEasy - Matthew Jacobs</title>
+    <link rel="stylesheet" href="/stylesheets/application.css">
+  </head>
+  <body>
+
+<div id="box-container">
+    <h1><%= @title %></h1>
+
+    <div class="box">
+    	<img class="apt-photo" src="images/apartment.png">
+    	<div class="text">
+    		<span>130 5th Avenue</span>
+    		<p>New York</p>
+    	</div>
+    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span></a>
+    	</a>
+    	  	
+    </div>
+    <div class="box">
+    	<img class="apt-photo" src="images/apartment.png">
+    	<div class="text">
+    		<span>130 5th Avenue</span>
+    		<p>New York</p>
+    	</div>
+    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span></a>
+    </div>
+    <div class="box">
+    	<img class="apt-photo" src="images/apartment.png">
+    	<div class="text">
+    		<span>130 5th Avenue</span>
+    		<p>New York</p>
+    	</div>
+    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span></a>
+    </div>
+    <div class="box">
+    	<img class="apt-photo" src="images/apartment.png">
+    	<div class="text">
+    		<span>130 5th Avenue</span>
+    		<p>New York</p>
+    	</div>
+    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span></a>
+    </div>
+    <div class="box">
+    	<img class="apt-photo" src="images/apartment.png">
+    	<div class="text">
+    		<span>130 5th Avenue</span>
+    		<p>New York</p>
+    	</div>
+    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span></a>
+    </div>
+    <div class="box">
+    	<img class="apt-photo" src="images/apartment.png">
+    	<div class="text">
+    		<span>130 5th Avenue</span>
+    		<p>New York</p>
+    	</div>
+    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span></a>
+    </div>
+
+
+
+</div>
+<div id="checkout-popup">
+    <div id='count-circle'><span id="count"></span></div>
+	<img src="images/cart.svg">
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script type="text/javascript">
+
+
+var clicks = 0;
+
+$('.add-cart').click(function(){
+	var self = $(this);
+   $(this).addClass('disabled');
+   $(this).animate({
+   	  'background-color': '#4BDDC2'
+   }, 500);
+   $(this).find('span').animate({
+   	  'opacity': '0'
+   }, 500);
+   $(this).find('.cart-image').animate({
+   	  'opacity': '0'
+   }, 500);
+
+   setTimeout(function(){
+   	console.log($(this));
+   	self.animate({
+   		'background-color': '#A1A1A1'
+   	}, 500);
+    self.find('.check-image').animate({
+    	'opacity': '1'
+    }, 500);
+
+   }, 500);
+
+  if (clicks == 0){
+  	clicks++;
+  	$("#count").text(clicks);
+	  	$("#checkout-popup").animate({
+	    opacity: 1,
+	    width:"80px",
+	    height:"80px"
+	  }, 500).animate({
+	    opacity: 1,
+	    width:"70px",
+	    height:"70px"
+	  }, 100);
+
+	  	$("#checkout-popup img").animate({
+	    opacity: 1,
+	    width:"28px",
+	    height:"28px"
+	  }, 500).animate({
+	    opacity: 1,
+	    width:"25px",
+	    height:"25px"
+	  }, 100);
+
+	  $("#count-circle").animate({
+	    opacity: 1,
+	    width:"28px",
+	    height:"28px"
+	  }, 500).animate({
+	    opacity: 1,
+	    width:"24px",
+	    height:"24px"
+	  }, 100);
+
+	  $("#count").animate({
+	    opacity: 1,
+	    'font-size': '18px'
+	  }, 500).animate({
+	    opacity: 1,
+	    'font-size': '16px'
+	  }, 100);
+
+  }
+
+  else if (clicks > 0){
+  	clicks++;
+	  $("#count-circle").animate({
+	    width:"48px",
+	    height:"48px"
+	  }, 500, function() {
+	    $("#count").text(clicks);
+	  }).animate({
+	    width:"24px",
+	    height:"24px"
+	  }, 500);
+  
+    $("#count").animate({
+	    'font-size': '32px',
+	    left: '16px'
+	  }, 500).animate({
+	    'font-size': '16px',
+	    left: '8px'
+	  }, 500);
+
+  }
+});
+
+
+</script>
+  </body>
+</html>
