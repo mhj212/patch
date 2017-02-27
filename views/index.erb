@@ -14,9 +14,7 @@
     		<span>130 5th Avenue</span>
     		<p>New York</p>
     	</div>
-    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span></a>
-    	
-    	  	
+    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span><div class="overlay"></div></a>  	
     </div>
     <div class="box">
     	<img class="apt-photo" src="images/apartment.png">
@@ -24,7 +22,7 @@
     		<span>130 5th Avenue</span>
     		<p>New York</p>
     	</div>
-    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span></a>
+    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span><div class="overlay"></div></a>
     </div>
     <div class="box">
     	<img class="apt-photo" src="images/apartment.png">
@@ -32,7 +30,7 @@
     		<span>130 5th Avenue</span>
     		<p>New York</p>
     	</div>
-    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span></a>
+    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span><div class="overlay"></div></a>
     </div>
     <div class="box">
     	<img class="apt-photo" src="images/apartment.png">
@@ -40,7 +38,7 @@
     		<span>130 5th Avenue</span>
     		<p>New York</p>
     	</div>
-    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span></a>
+    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span><div class="overlay"></div></a>
     </div>
     <div class="box">
     	<img class="apt-photo" src="images/apartment.png">
@@ -48,7 +46,7 @@
     		<span>130 5th Avenue</span>
     		<p>New York</p>
     	</div>
-    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span></a>
+    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span><div class="overlay"></div></a>
     </div>
     <div class="box">
     	<img class="apt-photo" src="images/apartment.png">
@@ -56,7 +54,7 @@
     		<span>130 5th Avenue</span>
     		<p>New York</p>
     	</div>
-    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span></a>
+    	<a class="add-cart"><div class="cart-image"></div><div class="check-image"></div><span>ADD</span><div class="overlay"></div></a>
     </div>
 
 
@@ -75,12 +73,24 @@
 
 <script type="text/javascript">
 
+$(document).ready(function(){
 
+
+
+// Add cart button
 var clicks = 0;
-
 $('.add-cart').click(function(){
 	var self = $(this);
+	var overlay = $(this).find('.overlay');
+
    $(this).addClass('disabled');
+
+   overlay.animate({
+   	  'height': '+=40px'
+   	  // 'border-radius': '0 0 90px 90px;'
+   }, 500);
+
+
    $(this).animate({
    	  'background-color': '#4BDDC2'
    }, 500);
@@ -92,8 +102,8 @@ $('.add-cart').click(function(){
    }, 500);
 
    setTimeout(function(){
-   	console.log($(this));
-   	self.animate({
+   	// console.log($(this));
+   	overlay.animate({
    		'background-color': '#A1A1A1'
    	}, 500);
     self.find('.check-image').animate({
@@ -102,6 +112,8 @@ $('.add-cart').click(function(){
 
    }, 500);
 
+
+  // Checkout Popup
   if (clicks == 0){
   	clicks++;
   	$("#count").text(clicks);
@@ -168,7 +180,7 @@ $('.add-cart').click(function(){
   }
 });
 
-
+});
 </script>
   </body>
 </html>
