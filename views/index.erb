@@ -88,13 +88,13 @@ $('.add-cart').click(function(){
    overlay.animate({
    	  'height': '+=40px'
    }, 500, function(){
-   overlay.css('border-radius', '0 0 0 0');
+   overlay.css({'border-radius': '0 0 0 0','background-color': '#4BDDC2'});
    });
 
 
-   $(this).animate({
-   	  'background-color': '#4BDDC2'
-   }, 500);
+   // $(this).animate({
+   // 	  'background-color': '#4BDDC2'
+   // }, 500);
    $(this).find('span').animate({
    	  'opacity': '0'
    }, 500);
