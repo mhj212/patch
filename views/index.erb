@@ -87,8 +87,9 @@ $('.add-cart').click(function(){
 
    overlay.animate({
    	  'height': '+=40px'
-   	  // 'border-radius': '0 0 90px 90px;'
-   }, 500);
+   }, 500, function(){
+   overlay.css('border-radius', '0 0 0 0');
+   });
 
 
    $(this).animate({
